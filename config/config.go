@@ -1,6 +1,8 @@
 package config
 
 import (
+	"encoding/json"
+	"fmt"
 	"log"
 
 	"github.com/spf13/viper"
@@ -14,13 +16,17 @@ func LoadConfig() Config {
 	viper.AddConfigPath("./files/config")
 	err := viper.ReadInConfig()
 	if err != nil {
-		log.Fatal("error read config file: %v", err)
+		log.Fatalf("error read config file: %v", err)
 	}
 
-	err = viper.Unmarshal(&cfg)\
+	err = viper.Unmarshal(&cfg)
 	if err != nil {
-		log.Fatal("error unmarshal config: %v", err)
+		log.Fatalf("error unmarshal config: %v", err)
 	}
+
+	// debug only
+	tempDebug31, _ := json.Marshal(cfg)
+	fmt.Printf("DEBUG :%s \n", string(tempDebug31))
 
 	return cfg
 }
