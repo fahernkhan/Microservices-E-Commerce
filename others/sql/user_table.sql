@@ -5,3 +5,4 @@ CREATE TABLE "user" (
     password TEXT NOT NULL,
     role VARCHAR(20) DEFAULT 'user'
 )
+
