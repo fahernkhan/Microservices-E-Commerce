@@ -22,9 +22,10 @@ func NewUserHandler(userUsecase usecase.UserUsecase) *UserHandler {
 func (h *UserHandler) Register(c *gin.Context) {
 	var param models.RegisterParameter
 	if err := c.ShouldBindJSON(&param); err != nil {
-		log.Logger.Info("invalid parameter")
+		log.Logger.Info(err.Error())
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error_message": err.Error(),
+			// "error_message": err.Error(), gak valid itampilin di user
+			"error_message": "invalid input parameter",
 		})
 		return
 	}
