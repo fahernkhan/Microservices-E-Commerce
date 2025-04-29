@@ -47,7 +47,34 @@ func (h *UserHandler) Register(c *gin.Context) {
 		return
 	}
 
+	user, err := h.UserUsecase.GetUserByEmail(param.Email)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error_message": err.Error(),
+		})
+		return
+	}
+
 	// masuk ke use case resgister
+	if user.ID != 0 {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error_message": "Email already exists!",
+		})
+		return
+	}
+
+	err = h.UserUsecase.RegisterUser(&models.User{
+		Name:     param.Name,
+		Email:    param.Email,
+		Password: param.Password,
+	})
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error_message": err.Error(),
+		})
+		return
+	}
+
 	c.JSON(http.StatusCreated, gin.H{
 		"message": "User sucessfulllly registered!",
 	})
