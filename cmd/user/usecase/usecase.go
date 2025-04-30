@@ -2,7 +2,11 @@ package usecase
 
 import (
 	"microservices-e-commerce/cmd/user/service"
+	"microservices-e-commerce/infrastructure/log"
 	"microservices-e-commerce/models"
+	"microservices-e-commerce/utils"
+
+	"github.com/sirupsen/logrus"
 )
 
 type UserUsecase struct {
@@ -25,8 +29,23 @@ func (uc *UserUsecase) GetUserByEmail(email string) (*models.User, error) {
 }
 
 func (uc *UserUsecase) RegisterUser(user *models.User) error {
-	_, err := uc.UserService.CreateNewUser(user)
+	// hash password
+	hashedPassword, err := utils.HashPassword(user.Password)
 	if err != nil {
+		log.Logger.WithFields(logrus.Fields{
+			"email": user.Email,
+		}).Errorf("utils.HashPassword() got error %v", err)
+		return err
+	}
+
+	// insert db
+	user.Password = hashedPassword
+	_, err = uc.UserService.CreateNewUser(user)
+	if err != nil {
+		log.Logger.WithFields(logrus.Fields{
+			"email": user.Email,
+			"name":  user.Name,
+		}).Errorf("uc.UserService.CreateNewUser(user) got error %v", err)
 		return err
 	}
 

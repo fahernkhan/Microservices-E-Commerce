@@ -56,7 +56,7 @@ func (h *UserHandler) Register(c *gin.Context) {
 	}
 
 	// masuk ke use case resgister
-	if user.ID != 0 {
+	if user != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error_message": "Email already exists!",
 		})
