@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
-	"microservices-e-commerce/cmd/user/repository"
-	"microservices-e-commerce/models"
+	"order-service/cmd/user/repository"
+	"order-service/models"
 )
 
 type UserService struct {

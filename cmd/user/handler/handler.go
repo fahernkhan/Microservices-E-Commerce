@@ -1,10 +1,10 @@
 package handler
 
 import (
-	"microservices-e-commerce/cmd/user/usecase"
-	"microservices-e-commerce/infrastructure/log"
-	"microservices-e-commerce/models"
 	"net/http"
+	"order-service/cmd/user/usecase"
+	"order-service/infrastructure/log"
+	"order-service/models"
 
 	"github.com/gin-gonic/gin"
 )

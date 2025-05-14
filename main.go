@@ -1,14 +1,14 @@
 package main
 
 import (
-	"microservices-e-commerce/cmd/user/handler"
-	"microservices-e-commerce/cmd/user/repository"
-	"microservices-e-commerce/cmd/user/resource"
-	"microservices-e-commerce/cmd/user/service"
-	"microservices-e-commerce/cmd/user/usecase"
-	"microservices-e-commerce/config"
-	"microservices-e-commerce/infrastructure/log"
-	"microservices-e-commerce/routes"
+	"order-service/cmd/user/handler"
+	"order-service/cmd/user/repository"
+	"order-service/cmd/user/resource"
+	"order-service/cmd/user/service"
+	"order-service/cmd/user/usecase"
+	"order-service/config"
+	"order-service/infrastructure/log"
+	"order-service/routes"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"microservices-e-commerce/cmd/user/handler"
-	"microservices-e-commerce/middleware"
+	"order-service/cmd/user/handler"
+	"order-service/middleware"
 
 	"github.com/gin-gonic/gin"
 )

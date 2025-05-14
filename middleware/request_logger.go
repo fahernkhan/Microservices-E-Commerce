@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"context"
-	"microservices-e-commerce/infrastructure/log"
+	"order-service/infrastructure/log"
 	"time"
 
 	"github.com/gin-gonic/gin"

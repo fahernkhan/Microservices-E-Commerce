@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 	"errors"
-	"microservices-e-commerce/models"
+	"order-service/models"
 
 	"gorm.io/gorm"
 )

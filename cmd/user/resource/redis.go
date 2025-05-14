@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"microservices-e-commerce/config"
+	"order-service/config"
 
 	"github.com/redis/go-redis/v9"
 )

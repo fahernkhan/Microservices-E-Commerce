@@ -3,7 +3,7 @@ package resource
 import (
 	"fmt"
 	"log"
-	"microservices-e-commerce/config"
+	"order-service/config"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

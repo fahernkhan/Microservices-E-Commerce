@@ -3,10 +3,10 @@ package usecase
 import (
 	"context"
 	"errors"
-	"microservices-e-commerce/cmd/user/service"
-	"microservices-e-commerce/infrastructure/log"
-	"microservices-e-commerce/models"
-	"microservices-e-commerce/utils"
+	"order-service/cmd/user/service"
+	"order-service/infrastructure/log"
+	"order-service/models"
+	"order-service/utils"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"

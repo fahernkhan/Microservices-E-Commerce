@@ -1,4 +1,4 @@
-module microservices-e-commerce
+module order-service
 
 go 1.24.2
 
@@ -9,7 +9,6 @@ require (
 	github.com/redis/go-redis/v9 v9.7.3
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/viper v1.20.1
-	go.starlark.net v0.0.0-20250417143717-f57e51f710eb
 	golang.org/x/crypto v0.37.0
 	gorm.io/driver/postgres v1.5.11
 	gorm.io/gorm v1.25.10
